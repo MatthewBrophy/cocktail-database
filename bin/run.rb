@@ -19,10 +19,10 @@ puts Ingredient
 api_communicator_test
 welcome
 
-#get_drink_hash_by_id
+#populate_database
 
 test_hash = {"idDrink"=>"14588",
-    "strDrink"=>"151 Florida Bushwacker",
+    "strDrink"=>"151 Florida Bushwacker    ",
     "strDrinkES"=>nil,
     "strDrinkDE"=>nil,
     "strDrinkFR"=>nil,
@@ -57,7 +57,7 @@ test_hash = {"idDrink"=>"14588",
     "strIngredient15"=>"",
     "strMeasure1"=>"1/2 oz ",
     "strMeasure2"=>"1/2 oz ",
-    "strMeasure3"=>"1/2 oz Bacardi ",
+    "strMeasure3"=>"1/2 oz Bacardi",
     "strMeasure4"=>"1 oz ",
     "strMeasure5"=>"1 oz ",
     "strMeasure6"=>"3 oz ",

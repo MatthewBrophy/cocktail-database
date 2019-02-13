@@ -1,26 +1,26 @@
 
-def add_drink(drink_hash)
-  drink = Drink.create(name: drink_hash["strDrink"], instructions: drink_hash["strInstructions"],
-  vessel: drink_hash["strGlass"], category: drink_hash["strCategory"])
-  #How do I set a boolean equal to true or false on active record.
-  #drink_hash["strAlcoholic"] == "Alcoholic" ? drink.alcoholic = 1 : drink.alcoholic = 0
-  add_ingredients(drink, drink_hash)
 
+def add_drink(drink_hash)
+  drink = Drink.create(name: drink_hash["strDrink"].strip, instructions: drink_hash["strInstructions"],
+  vessel: drink_hash["strGlass"], category: drink_hash["strCategory"])
+  drink_hash["strAlcoholic"] == "Alcoholic" ? drink.alcoholic = 1 : drink.alcoholic = 0
+  drink.save
+  add_ingredients(drink, drink_hash)
+  puts drink
 end
 
 def add_ingredients(drink, drink_hash)
-  #binding.pry
   ingredients = drink_hash.map {|k, v| v if k.start_with?("strIngredient") && v != ""}.compact
+  ingredients = ingredients.map { |element| element.strip }
   quantities = drink_hash.map {|k, v| v if k.start_with?("strMeasure") && v != ""}.compact
+  quantities = quantities.map { |element| element.strip }
   i = 0
   while i < ingredients.length
     ingredient = Ingredient.find_or_create_by(name: ingredients[i])
-    #binding.pry
     drink.ingredients << ingredient
     ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
-    #binding.pry
     ingredient_card.measurement = quantities[i]
-    binding.pry
+    ingredient_card.save
     i += 1
   end
 end
