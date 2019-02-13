@@ -22,16 +22,16 @@ def all_ingredients
   end
 end
 
-def get_all_drinks_from_ingredient_list
-  all_drinks = []
-  all_ingredients.each do |ingredient|
-    drinks = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=#{ingredient}"))
-    drinks["drinks"].each do |drink|
-      all_drinks << drink["idDrink"]
-    end
-  end
-  all_drinks.uniq
-end
+# def get_all_drinks_from_ingredient_list
+#   all_drinks = []
+#   all_ingredients.each do |ingredient|
+#     drinks = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=#{ingredient}"))
+#     drinks["drinks"].each do |drink|
+#       all_drinks << drink["idDrink"]
+#     end
+#   end
+#   all_drinks.uniq
+# end
 
 def get_drink_hash_by_id
   get_all_drinks_from_ingredient_list.each do |id|

@@ -16,5 +16,3 @@ puts Ingredient
 
 api_communicator_test
 welcome
-
-#get_drink_hash_by_id
