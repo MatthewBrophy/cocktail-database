@@ -1,5 +1,8 @@
 
 
+
+
+
 def add_drink(drink_hash)
   drink = Drink.create(name: drink_hash["strDrink"], instructions: drink_hash["strInstructions"],
   vessel: drink_hash["strGlass"], category: drink_hash["strCategory"], api_id: drink_hash["idDrink"])
@@ -8,11 +11,12 @@ def add_drink(drink_hash)
 end
 
 def add_ingredients(drink, drink_hash)
-  ingredients = drink_hash.map {|k, v| v if k.start_with?("strIngredient")}
+  ingredients = drink_hash.map {|k, v| v if k.start_with?("strMeasure")}
+  quantities = drink_hash.map {|k, v| v if k.start_with?("strIngredient")}
   while i < ingredients.length
     ingredient = Ingriedent.find_or_create_by_name(ingredients[i])
     drink.ingredients << ingredient
-    IngredientCard.create(drink, ingredient)
+    IngredientCard.create(quantity: quantities[i])
   end
 end
 

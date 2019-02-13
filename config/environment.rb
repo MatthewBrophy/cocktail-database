@@ -1,7 +1,14 @@
+# require 'require_all'
+# require_all '../app'
 require 'bundler/setup'
 require "sinatra/activerecord"
 require 'rest-client'
 require 'json'
+require_relative '../app/models/drink'
+require_relative '../app/models/ingredient_card'
+require_relative '../app/models/ingredient'
+require_relative "../lib/api_communicator.rb"
+require_relative "../lib/command_line_interface.rb"
 Bundler.require
 
 ActiveRecord::Base.establish_connection(
@@ -10,6 +17,3 @@ ActiveRecord::Base.establish_connection(
 )
 
 ActiveRecord::Base.logger = Logger.new(STDOUT)
-
-require_all 'app'
-

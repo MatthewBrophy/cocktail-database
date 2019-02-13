@@ -11,6 +11,10 @@ require_relative "../db/seeds.rb"
 #   end
 # end
 
+def api_communicator_test
+  puts "api test pass"
+end
+
 def all_ingredients
   ingredient_list = JSON.parse(RestClient.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'))
   ingredient_list["drinks"].map do |item|
