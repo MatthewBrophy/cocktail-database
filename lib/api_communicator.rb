@@ -26,9 +26,14 @@ def get_all_drinks_from_ingredient_list
 end
 
 def populate_database
-  #drink_hash = {}
   get_all_drinks_from_ingredient_list.each do |id|
     drink_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{id}"))
     add_drink(drink_hash["drinks"][0])
   end
+end
+
+def find_description(ingredient_name)
+  fixed_ingredient = ingredient_name.split(" ").join('_').split("ñ").join('n').split("ä").join('a')
+  ingredient_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?i=#{fixed_ingredient}"))
+  ingredient_hash["ingredients"][0]["strDescription"]
 end

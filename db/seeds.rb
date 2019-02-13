@@ -5,24 +5,34 @@ def add_drink(drink_hash)
   vessel: drink_hash["strGlass"], category: drink_hash["strCategory"])
   drink_hash["strAlcoholic"] == "Alcoholic" ? drink.alcoholic = 1 : drink.alcoholic = 0
   drink.save
-  add_ingredients(drink, drink_hash)
-  puts drink
+  create_ingredient_arrays(drink, drink_hash)
 end
 
-def add_ingredients(drink, drink_hash)
+def create_ingredient_arrays(drink, drink_hash)
   ingredients = drink_hash.map {|k, v| v if k.start_with?("strIngredient") && v != ""}.compact
   ingredients = ingredients.map { |element| element.strip }
   quantities = drink_hash.map {|k, v| v if k.start_with?("strMeasure") && v != ""}.compact
   quantities = quantities.map { |element| element.strip }
+  add_ingredients_and_quantities(drink, drink_hash, ingredients, quantities)
+end
+
+def add_ingredients_and_quantities(drink, drink_hash, ingredients, quantities)
   i = 0
   while i < ingredients.length
     ingredient = Ingredient.find_or_create_by(name: ingredients[i])
     drink.ingredients << ingredient
+    add_description_to_ingredient(ingredient)
     ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
     ingredient_card.measurement = quantities[i]
     ingredient_card.save
     i += 1
   end
+end
+
+def add_description_to_ingredient(ingredient)
+  description_to_add = find_description(ingredient.name)
+    ingredient.description = description_to_add
+    ingredient.save
 end
 
 # User.find_or_create_by(first_name: 'Scarlett') do |user|
