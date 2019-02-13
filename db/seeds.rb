@@ -11,3 +11,4 @@ def add_ingredients(drink, drink_hash)
     Ingredient.find_or_create_by_name(ingredient)
   end
 end
+
