@@ -64,7 +64,6 @@ def drink_recipe(user_input)
       Drink.recipe(user_input)
       run_again?
     else
-      puts ""
       puts "Sorry, that drink does not yet exist in our database."
       learn_a_cocktail
     end
@@ -100,6 +99,7 @@ def surprise_drink_intro_and_randoms
   puts "---------------------------------------------------------------------------------"
   random_drinks = Drink.ten_random_drinks
   random_drinks.each_with_index do |drink, i|
+    #binding.pry
     puts "#{i + 1}. #{drink}"
   end
   surprise_drink(random_drinks)
@@ -107,6 +107,7 @@ end
 
 def surprise_drink(random_drinks)
   user_input = gets.strip.downcase.to_i
+<<<<<<< HEAD
   if user_input.between?(1, 10)
     drink_recipe(random_drinks[(user_input - 1)].downcase)
   else
@@ -116,8 +117,18 @@ def surprise_drink(random_drinks)
   end
 end
 
-
 def lookup_drink_list
   puts "Please enter the name of an ingredient."
   user_input = gets.strip.downcase
+  if Ingredient.ingredient_exist(user_input) != nil
+    drinks_array = Ingredient.drink_list(user_input)
+    drinks_array.each_with_index do |drink, index|
+      puts "#{index + 1}. #{drink}"
+    end
+    run_again?
+  else
+    puts "Sorry, that ingredient does not yet exist in our database."
+    lookup_drink_list
+  end
+>>>>>>> 804d678373f84bcbbb54bded085ae77ceb25bd40
 end
