@@ -15,10 +15,12 @@ def add_ingredients(drink, drink_hash)
   i = 0
   while i < ingredients.length
     ingredient = Ingredient.find_or_create_by(name: ingredients[i])
-    binding.pry
+    #binding.pry
     drink.ingredients << ingredient
     ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
-    ingredient_card.quantity = quantities[i]
+    #binding.pry
+    ingredient_card.measurement = quantities[i]
+    binding.pry
     i += 1
   end
 end
