@@ -1,9 +1,9 @@
 # require 'require_all'
 # require_all '../app'
 require 'bundler/setup'
-require "sinatra/activerecord"
 require 'rest-client'
 require 'json'
+require 'sinatra/activerecord'
 require_relative '../app/models/drink'
 require_relative '../app/models/ingredient_card'
 require_relative '../app/models/ingredient'

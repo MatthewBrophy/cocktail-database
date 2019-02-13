@@ -27,13 +27,12 @@ end
 
 def get_drink_hash_by_id
   drink_hash = {}
-   full_drink_array = []
+   #full_drink_array = []
   get_all_drinks_from_ingredient_list.each do |id|
     drink_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{id}"))
+    binding.pry
     add_drink(drink_hash)
-    full_drink_array << drink_hash
+    #full_drink_array << drink_hash
   end
-  puts drink_hash
+  #puts drink_hash
 end
-
-
