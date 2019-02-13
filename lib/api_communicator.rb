@@ -1,12 +1,13 @@
-# require 'rest-client'
-# require 'json'
-# require 'pry'
+require 'rest-client'
+require 'json'
+require 'pry'
+require_relative "../db/seeds.rb"
 
 # def get_drinks_from_ingredient(ingredient)
 #   drink_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=#{ingredient}"))
 #   drink_names = {}
 #   drink_hash["drinks"].map do |drink|
-    
+#
 #   end
 # end
 
@@ -28,20 +29,9 @@
 #   all_drinks.uniq
 # end
 
-# def get_drink_hash_by_id
-#   get_all_drinks_from_ingredient_list.each do |id|
-#     puts id
-#     drink_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{id}"))
-#   end
-# end
-  
-#   # File.open('complete_cocktails.json', 'w') do |f|
-#   #   f.write(all_drinks.to_json)
-#   # end
-
-
-# def parse_json_file
-#   file = File.open("./lib/complete_cocktails.json", 'r')
-#   data = JSON.parse(file.read)
-#   puts data
-# end
+def get_drink_hash_by_id
+  get_all_drinks_from_ingredient_list.each do |id|
+    drink_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{id}"))
+    add_drink(drink_hash)
+  end
+end
