@@ -34,14 +34,3 @@ def add_description_to_ingredient(ingredient)
     ingredient.description = description_to_add
     ingredient.save
 end
-
-# User.find_or_create_by(first_name: 'Scarlett') do |user|
-#   user.last_name = 'Johansson'
-# end
-
-
-
-# ingredients.each do |ingredient_name|
-#   ingredient = Ingredient.find_or_create_by_name(ingredient_name)
-#   drink.ingredients << ingredient
-# end

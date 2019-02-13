@@ -35,5 +35,9 @@ end
 def find_description(ingredient_name)
   fixed_ingredient = ingredient_name.split(" ").join('_').split("ñ").join('n').split("ä").join('a')
   ingredient_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?i=#{fixed_ingredient}"))
-  ingredient_hash["ingredients"][0]["strDescription"]
+  if ingredient_hash["ingredients"] == nil
+    nil
+  else
+    ingredient_hash["ingredients"][0]["strDescription"]
+  end
 end
