@@ -3,13 +3,9 @@ require 'json'
 require 'pry'
 require_relative "../db/seeds.rb"
 
-# def get_drinks_from_ingredient(ingredient)
-#   drink_hash = JSON.parse(RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=#{ingredient}"))
-#   drink_names = {}
-#   drink_hash["drinks"].map do |drink|
-#
-#   end
-# end
+def api_communicator_test
+  puts "api test pass"
+end
 
 def all_ingredients
   ingredient_list = JSON.parse(RestClient.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'))
