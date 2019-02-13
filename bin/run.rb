@@ -6,4 +6,5 @@ require 'pp'
 
 welcome
 
-puts get_all_drinks_from_ingredient_list
+puts get_drink_hash_by_id
+ 
