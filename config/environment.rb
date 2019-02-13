@@ -1,5 +1,7 @@
 require 'bundler/setup'
 require "sinatra/activerecord"
+require 'rest-client'
+require 'json'
 Bundler.require
 
 ActiveRecord::Base.establish_connection(
