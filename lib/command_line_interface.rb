@@ -42,7 +42,7 @@ def get_user_menu_input
   if user_input == "1"
     learn_a_cocktail
   elsif user_input == "2"
-    puts "testy testy 2"
+    lookup_drink_list
   elsif user_input == "3"
     puts "testy testy 3"
   elsif user_input == "4"
@@ -107,7 +107,6 @@ end
 
 def surprise_drink(random_drinks)
   user_input = gets.strip.downcase.to_i
-<<<<<<< HEAD
   if user_input.between?(1, 10)
     drink_recipe(random_drinks[(user_input - 1)].downcase)
   else
@@ -130,5 +129,4 @@ def lookup_drink_list
     puts "Sorry, that ingredient does not yet exist in our database."
     lookup_drink_list
   end
->>>>>>> 804d678373f84bcbbb54bded085ae77ceb25bd40
 end
