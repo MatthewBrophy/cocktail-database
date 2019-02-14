@@ -6,7 +6,7 @@ puts "|`````|"
 puts "\\     /"
 puts " `-.-'           ____"
 puts "   |    /\\     .'   /\\"
-puts " __|__  |K----;    |  |"
+puts " __|__  ||----;    |  |"
 puts "`-----` \\/     '.___\\/"
 end
 
@@ -44,6 +44,7 @@ def welcome
 end
 
 def command_prompt
+  puts ""
   puts "---------------------------------------------------------------------------------"
   puts "Please select from the following options:       (Enter a number between 1 and 4)"
   puts "---------------------------------------------------------------------------------"
@@ -57,25 +58,29 @@ def command_prompt
 end
 
 def get_user_menu_input
+  puts ""
   user_input = gets.strip
   if user_input == "1"
     learn_a_cocktail
   elsif user_input == "2"
-    lookup_drink_list
+    lookup_drink_list_intro
   elsif user_input == "3"
-    puts "testy testy 3"
+    describe_ingredient
   elsif user_input == "4"
-    surprise_drink_intro_and_randoms
+    surprise_drink_intro
   elsif user_input == "5" || user_input == "exit"
     exit
   else
+    puts ""
     puts "You may already be too drunk to use this application.  Please make a valid selection"
     get_user_menu_input
   end
 end
 
 def learn_a_cocktail
+    puts ""
     puts "Please enter the name of the cocktail you would like to learn to make:"
+    puts ""
     user_input = gets.strip.downcase
     if user_input == "exit"
       exit
@@ -89,6 +94,7 @@ def drink_recipe(user_input)
       Drink.recipe(user_input)
       run_again?
     else
+      puts ""
       puts "Sorry, that drink does not yet exist in our database."
       learn_a_cocktail
     end
@@ -106,10 +112,12 @@ def re_run
   puts ""
   puts " • Yes  (return to the main menu)"
   puts " • No   (exit the program)"
+  puts ""
   user_input = gets.strip.downcase
   if user_input == "yes" || user_input == "y"
     command_prompt
   elsif user_input == "no" || user_input == "n"
+    puts ""
     puts "------------------------------------------------------------------------------------------"
     puts "Thanks for using the cocktail database! Come back when you want to learn more about booze."
     puts "------------------------------------------------------------------------------------------"
@@ -122,7 +130,7 @@ def re_run
   end
 end
 
-def surprise_drink_intro_and_randoms
+def surprise_drink_intro
   puts ""
   puts "---------------------------------------------------------------------------------"
   puts "Choose yo drank:                                (Enter a number between 1 and 10)"
@@ -136,33 +144,60 @@ def surprise_drink_intro_and_randoms
 end
 
 def surprise_drink(random_drinks)
+  puts ""
   user_input = gets.strip.downcase.to_i
   if user_input.between?(1, 10)
     drink_recipe(random_drinks[(user_input - 1)].downcase)
   else
+    puts ""
     puts "Somebody didn't learn to count to 10"
     puts "Please enter a number between 1 and 10"
     surprise_drink(random_drinks)
   end
 end
 
-def lookup_drink_list
-  puts "Please enter the name of an ingredient."
+def lookup_drink_list_intro
+  puts ""
+  puts "---------------------------------------------------------------------------------"
+  puts "Please enter the name of an Ingredient:"
+  puts "---------------------------------------------------------------------------------"
+  puts ""
   user_input = gets.strip.downcase
   if Ingredient.ingredient_exist(user_input) != nil
     drinks_array = Ingredient.drink_list(user_input)
+    puts ""
+    puts "---------------------------------------------------------------------------------"
+    puts "Choose yo drank:                                (Enter a number between 1 and #{drinks_array.length})"
+    puts "---------------------------------------------------------------------------------"
     drinks_array.each_with_index do |drink, index|
       puts "#{index + 1}. #{drink}"
     end
-    run_again?
+    lookup_drink_list(drinks_array)
   else
+    puts ""
     puts "Sorry, that ingredient does not yet exist in our database."
     lookup_drink_list
   end
 end
 
+def lookup_drink_list(drinks_array)
+  puts ""
+  user_input = gets.strip.downcase.to_i
+  if user_input.between?(1, (drinks_array.length))
+    drink_recipe(drinks_array[(user_input - 1)].downcase)
+    run_again?
+  else
+    puts ""
+    puts "Somebody didn't learn to count to #{drinks_array.length}"
+    puts "Please enter a number between 1 and #{drinks_arrary.length}"
+    surprise_drink(random_drinks)
+  end
+end
+
 def describe_ingredient
+  puts ""
   puts "Enter the name of your ingredient"
+  puts ""
   user_input = gets.strip.downcase
   if Ingredient.ingredient_exist(user_input) != nil
     ingredient = Ingredient.find_by(name: user_input)
@@ -174,6 +209,7 @@ def describe_ingredient
     puts ""
     run_again?
   else
+    puts ""
     puts "Sorry, that ingredient does not yet exist in our database."
     describe_ingredient
   end
