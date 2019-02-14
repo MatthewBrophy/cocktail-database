@@ -116,19 +116,8 @@ def re_run
   user_input = gets.strip.downcase
   if user_input == "yes" || user_input == "y"
     command_prompt
-<<<<<<< HEAD
-  elsif user_input == "no" || user_input == "n"
-    puts ""
-    puts "------------------------------------------------------------------------------------------"
-    puts "Thanks for using the cocktail database! Come back when you want to learn more about booze."
-    puts "------------------------------------------------------------------------------------------"
-    puts banner1
-    puts "------------------------------------------------------------------------------------------"
-    puts "------------------------------------------------------------------------------------------"
-=======
   elsif user_input == "no" || user_input == "n" || user_input == "exit"
     exit_program
->>>>>>> 505f6effe20d0cf213fdfe955fca50dc63b98dcd
   else
     puts "can you read? type YES or NO."
     re_run
@@ -175,7 +164,7 @@ def lookup_drink_list_intro
     drinks_array = Ingredient.drink_list(user_input)
     puts ""
     puts "---------------------------------------------------------------------------------"
-    puts "Choose yo drank:                                (Enter a number between 1 and #{drinks_array.length})"
+    puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
     puts "---------------------------------------------------------------------------------"
     drinks_array.each_with_index do |drink, index|
       puts "#{index + 1}. #{drink}"
