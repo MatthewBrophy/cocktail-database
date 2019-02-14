@@ -5,10 +5,18 @@ require_relative "../app/models/drink.rb"
 
 test_cli
 
-#binding.pry
+welcome
+get_user_menu_input
 
 
-#populate_database
+
+
+
+
+
+
+
+
 
 # test_hash = {"idDrink"=>"14588",
 #     "strDrink"=>"151 Florida bushwacker  J.d.W.  ",
