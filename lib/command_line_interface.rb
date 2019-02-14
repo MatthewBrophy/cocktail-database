@@ -104,3 +104,8 @@ def surprise_drink
   user_input = gets.strip.downcase.to_i
   drink_recipe(random_drinks[(user_input + 1)])
 end
+
+def lookup_drink_list
+  puts "Please enter the name of an ingredient."
+  user_input = gets.strip.downcase
+end
