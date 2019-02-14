@@ -15,4 +15,9 @@ class Ingredient < ActiveRecord::Base
     end
   end
 
+  # def self.ingredient_description(ingredient_name)
+  #   ingredient = Ingredient.find_by(name: ingredient_name)
+  #   ingredient.description
+  # end
+
 end
