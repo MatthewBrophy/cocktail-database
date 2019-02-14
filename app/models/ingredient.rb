@@ -4,7 +4,7 @@ class Ingredient < ActiveRecord::Base
 
   def self.drink_list(ingredient_name)
     ingredient = Ingredient.find_by(name: ingredient_name)
-    ingredient.drinks.map { |drink| drink.name }
+    ingredient.drinks.map { |drink| drink.name.titleize }
   end
 
   def self.ingredient_exist(ingredient_name)
