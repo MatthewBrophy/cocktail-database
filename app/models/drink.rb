@@ -7,10 +7,9 @@ class Drink < ActiveRecord::Base
     puts ""
     puts ""
     puts drink.name.titleize
-    puts "--"
-    puts ""
+    puts "-----------"
     puts "Ingredients"
-    puts "--"
+    puts "-----------"
     puts ""
     drink.ingredients.map do |ingredient|
       ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
@@ -18,7 +17,7 @@ class Drink < ActiveRecord::Base
     end
     puts ""
     puts "Instructions"
-    puts "--"
+    puts "------------"
     puts ""
     puts drink.instructions
   end

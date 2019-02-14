@@ -1,5 +1,5 @@
 
-def banner
+def banner1
 puts " _____"
 puts "/.---.\\"
 puts "|`````|"
@@ -10,6 +10,29 @@ puts " __|__  |K----;    |  |"
 puts "`-----` \\/     '.___\\/"
 end
 
+def banner2
+puts " ()   ()      ()    /"
+puts "   ()      ()  ()  /"
+puts "    ______________/___"
+puts "    \\            /   /"
+puts "     \\^^^^^^^^^^/^^^/"
+puts "      \\     ___/   /"
+puts "       \\   (   )  /"
+puts "        \\  (___) /"
+puts "         \\ /    /"
+puts "          \\    /"
+puts "           \\  /"
+puts "            \\/"
+puts "            ||"
+puts "            ||"
+puts "            ||"
+puts "            ||"
+puts "            ||"
+puts "            /\\"
+puts "           /;;\\"
+puts "      =============="
+end
+
 def welcome
   puts " "
   puts " "
@@ -17,9 +40,7 @@ def welcome
   puts "Welcome to the cocktail database.  Let's get you drunk!"
   puts "-------------------------------------------------------"
   puts " "
-  puts " "
-  banner
-  puts " "
+  banner2
   puts " "
   puts " "
   command_prompt
@@ -33,6 +54,7 @@ def command_prompt
   puts "2. Look up a drink list by ingredient"
   puts "3. Find an ingredient's description"
   puts "4. Suprise me!"
+  puts "5. Exit the program       (You may exit the program at any time by typing 'exit')"
   puts "---------------------------------------------------------------------------------"
   get_user_menu_input
 end
@@ -47,6 +69,8 @@ def get_user_menu_input
     puts "testy testy 3"
   elsif user_input == "4"
     surprise_drink_intro_and_randoms
+  elsif user_input == "5" || user_input == "exit"
+    exit
   else
     puts "You may already be too drunk to use this application.  Please make a valid selection"
     get_user_menu_input
@@ -56,7 +80,11 @@ end
 def learn_a_cocktail
     puts "Please enter the name of the cocktail you would like to learn to make:"
     user_input = gets.strip.downcase
-    drink_recipe(user_input)
+    if user_input == "exit" || user_input == "5"
+      exit
+    else
+      drink_recipe(user_input)
+    end
 end
 
 def drink_recipe(user_input)
@@ -85,7 +113,12 @@ def re_run
   if user_input == "yes" || user_input == "y"
     command_prompt
   elsif user_input == "no" || user_input == "n"
+    puts "------------------------------------------------------------------------------------------"
     puts "Thanks for using the cocktail database! Come back when you want to learn more about booze."
+    puts "------------------------------------------------------------------------------------------"
+    puts banner1
+    puts "------------------------------------------------------------------------------------------"
+    puts "------------------------------------------------------------------------------------------"
   else
     puts "can you read? type YES or NO."
     re_run
