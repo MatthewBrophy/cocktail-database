@@ -26,9 +26,10 @@ class Drink < ActiveRecord::Base
     drink_array = []
     10.times do
       rando_id = rand(Drink.count)
-      drink = Drink.find_by(drink_id: rando_id)
-      drink_array << drink.name
+      drink = Drink.find_by(id: rando_id)
+      drink_array << drink.name.titleize
     end
+    drink_array
   end
 
   def self.drink_exist(drink_name)

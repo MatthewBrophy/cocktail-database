@@ -46,7 +46,7 @@ def get_user_menu_input
   elsif user_input == "3"
     puts "testy testy 3"
   elsif user_input == "4"
-    puts "testy testy 4"
+    surprise_drink
   else
     puts "You may already be too drunk to use this application.  Please make a valid selection"
     get_user_menu_input
@@ -54,6 +54,7 @@ def get_user_menu_input
 end
 
 def learn_a_cocktail
+<<<<<<< HEAD
   puts "Please enter the name of the cocktail you would like to learn to make:"
   user_input = gets.strip.downcase
   if Drink.drink_exist(user_input) != nil
@@ -63,6 +64,21 @@ def learn_a_cocktail
     puts "Sorry, that drink does not yet exist in our database."
     learn_a_cocktail
   end
+=======
+    puts "Please enter the name of the cocktail you would like to learn to make:"
+    user_input = gets.strip.downcase
+    drink_recipe(user_input)
+end
+
+def drink_recipe(user_input)
+    if Drink.drink_exist(user_input) != nil
+      Drink.recipe(user_input)
+      run_again?
+    else
+      puts "Sorry, that drink does not yet exist in our database."
+      learn_a_cocktail
+    end
+>>>>>>> 6c23937500675343646484806683f54c696a0a81
 end
 
 def run_again?
@@ -88,9 +104,23 @@ def re_run
   end
 end
 
+def surprise_drink
+  puts ""
+  puts "Enter the number of your desired drink."
+  random_drinks = Drink.ten_random_drinks
+  random_drinks.each_with_index do |drink, i|
+    #binding.pry
+    puts "#{i + 1}. #{drink}"
+  end
+  puts ""
+  user_input = gets.strip.downcase.to_i
+  drink_recipe(random_drinks[(user_input + 1)])
+end
+
 def lookup_drink_list
   puts "Please enter the name of an ingredient."
   user_input = gets.strip.downcase
+<<<<<<< HEAD
   if Ingredient.ingredient_exist(user_input) != nil
     drinks_array = Ingredient.drink_list(user_input)
     drinks_array.each_with_index do |drink, index|
@@ -102,3 +132,6 @@ def lookup_drink_list
     lookup_drink_list
   end
 end
+=======
+end
+>>>>>>> 6c23937500675343646484806683f54c696a0a81
