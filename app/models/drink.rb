@@ -33,5 +33,6 @@ class Drink < ActiveRecord::Base
       "exists"
     else
       nil
+    end
   end
 end
