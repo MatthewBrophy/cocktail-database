@@ -133,11 +133,3 @@ def describe_ingredient
     describe_ingredient
   end
 end
-
-# if Drink.drink_exist(user_input) != nil
-#   Drink.recipe(user_input)
-#   run_again?
-# else
-#   puts "Sorry, that drink does not yet exist in our database."
-#   learn_a_cocktail
-# end
