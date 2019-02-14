@@ -7,4 +7,12 @@ class Ingredient < ActiveRecord::Base
     puts ingredient.drinks
   end
 
+  def self.drink_exist(ingredient_name)
+    if Ingredient.find_by(name: ingredient_name)
+      "exists"
+    else
+      nil
+    end
+  end
+
 end
