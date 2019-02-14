@@ -7,11 +7,9 @@ class Drink < ActiveRecord::Base
     puts ""
     puts ""
     puts drink.name.titleize
-    puts "--"
     puts ""
     puts "Ingredients"
-    puts "--"
-    puts ""
+    puts "-----------"
     drink.ingredients.map do |ingredient|
       ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
       fixed_measure = ingredient_card.measurement ? ingredient_card.measurement + " - " : ""
@@ -19,9 +17,9 @@ class Drink < ActiveRecord::Base
     end
     puts ""
     puts "Instructions"
-    puts "--"
-    puts ""
+    puts "------------"
     puts drink.instructions
+    puts ""
   end
 
   def self.ten_random_drinks

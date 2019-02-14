@@ -32,30 +32,6 @@ puts "            /\\"
 puts "           /;;\\"
 puts "      =============="
 end
-
-def banner3
-  puts " ()   ()      ()    /                          o"
-  puts "   ()      ()  ()  /                            ."
-  puts "    ______________/___"
-  puts "    \\            /   /"
-  puts "     \\^^^^^^^^^^/^^^/"
-  puts "      \\     ___/   /"
-  puts "       \\   (   )  /"
-  puts "        \\  (___) /"
-  puts "         \\ /    /"
-  puts "          \\    /"
-  puts "           \\  /"
-  puts "            \\/"
-  puts "            ||"
-  puts "            ||"
-  puts "            ||"
-  puts "            ||"
-  puts "            ||"
-  puts "            /\\"
-  puts "           /;;\\"
-  puts "      =============="
-  end
-
 def welcome
   puts " "
   puts " "
@@ -235,7 +211,7 @@ def describe_ingredient
       ingredient = Ingredient.find_by(name: user_input)
       puts ""
       puts ingredient.name.titleize
-      puts "--"
+      puts "-----"
       puts ""
       puts ingredient.description
       puts ""
