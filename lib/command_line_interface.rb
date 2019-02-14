@@ -33,6 +33,29 @@ puts "           /;;\\"
 puts "      =============="
 end
 
+def banner3
+  puts " ()   ()      ()    /                          o"
+  puts "   ()      ()  ()  /                            ."
+  puts "    ______________/___"
+  puts "    \\            /   /"
+  puts "     \\^^^^^^^^^^/^^^/"
+  puts "      \\     ___/   /"
+  puts "       \\   (   )  /"
+  puts "        \\  (___) /"
+  puts "         \\ /    /"
+  puts "          \\    /"
+  puts "           \\  /"
+  puts "            \\/"
+  puts "            ||"
+  puts "            ||"
+  puts "            ||"
+  puts "            ||"
+  puts "            ||"
+  puts "            /\\"
+  puts "           /;;\\"
+  puts "      =============="
+  end
+
 def welcome
   puts " "
   puts " "
@@ -81,7 +104,7 @@ def learn_a_cocktail
     puts ""
     puts "Please enter the name of the cocktail you would like to learn to make:"
     puts ""
-    user_input = gets.strip.titleize.downcase
+    user_input = gets.strip.downcase.titleize.downcase
     if user_input == "exit"
       exit_program
     else
@@ -113,7 +136,7 @@ def re_run
   puts ' • Yes  (return to the main menu)'
   puts ' • No   (exit the program)'
   puts ""
-  user_input = gets.strip.downcase
+  user_input = gets.strip.downcase.titleize.downcase
   if user_input == "yes" || user_input == "y"
     command_prompt
   elsif user_input == "no" || user_input == "n" || user_input == "exit"
@@ -138,7 +161,7 @@ end
 
 def surprise_drink(random_drinks)
   puts ""
-  user_input = gets.strip.downcase
+  user_input = gets.strip.downcase.titleize.downcase
   if user_input == "exit"
     exit_program
   else
@@ -159,7 +182,7 @@ def lookup_drink_list_intro
   puts "Please enter the name of an Ingredient:"
   puts "---------------------------------------------------------------------------------"
   puts ""
-  user_input = gets.strip.downcase
+  user_input = gets.strip.downcase.titleize.downcase
   if user_input == "exit"
     exit_program
   else
@@ -183,7 +206,7 @@ end
 
 def lookup_drink_list(drinks_array)
   puts ""
-  user_input = gets.strip.downcase
+  user_input = gets.strip.downcase.titleize.downcase
   if user_input == "exit"
     exit_program
   else
@@ -204,7 +227,7 @@ def describe_ingredient
   puts ""
   puts "Enter the name of your ingredient"
   puts ""
-  user_input = gets.strip.downcase
+  user_input = gets.strip.downcase.titleize.downcase
   if user_input == "exit"
     exit_program
   else
