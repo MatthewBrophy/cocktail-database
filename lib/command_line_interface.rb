@@ -124,7 +124,6 @@ def surprise_drink_intro_and_randoms
   puts "---------------------------------------------------------------------------------"
   random_drinks = Drink.ten_random_drinks
   random_drinks.each_with_index do |drink, i|
-    #binding.pry
     puts "#{i + 1}. #{drink}"
   end
   surprise_drink(random_drinks)
@@ -164,6 +163,8 @@ end
 def describe_ingredient
   puts "Enter the name of your ingredient"
   user_input = gets.strip.downcase
+  if user_input == "exit"
+    exit_program
   if Ingredient.ingredient_exist(user_input) != nil
     ingredient = Ingredient.find_by(name: user_input)
     puts ""
