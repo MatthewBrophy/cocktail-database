@@ -22,6 +22,7 @@ def welcome
   puts " "
   puts " "
   puts " "
+  command_prompt
 end
 
 def command_prompt
@@ -33,6 +34,7 @@ def command_prompt
   puts "3. Find an ingredient's description"
   puts "4. Suprise me!"
   puts "---------------------------------------------------------------------------------"
+  get_user_menu_input
 end
 
 def get_user_menu_input
@@ -84,4 +86,9 @@ def re_run
     puts "can you read? type YES or NO."
     re_run
   end
+end
+
+def lookup_drink_list
+  puts "Please enter the name of an ingredient."
+  user_input = gets.strip.downcase
 end

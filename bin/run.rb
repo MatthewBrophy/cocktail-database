@@ -4,8 +4,7 @@ require 'pp'
 require_relative "../app/models/drink.rb"
 
 welcome
-command_prompt
-get_user_menu_input
+
 
 
 
