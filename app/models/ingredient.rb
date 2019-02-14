@@ -7,7 +7,7 @@ class Ingredient < ActiveRecord::Base
     ingredient.drinks.map { |drink| drink.name }
   end
 
-  def self.drink_exist(ingredient_name)
+  def self.ingredient_exist(ingredient_name)
     if Ingredient.find_by(name: ingredient_name)
       "exists"
     else
