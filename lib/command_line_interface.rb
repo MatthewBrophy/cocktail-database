@@ -81,13 +81,17 @@ def learn_a_cocktail
     puts ""
     puts "Please enter the name of the cocktail you would like to learn to make:"
     puts ""
-    user_input = gets.strip.downcase
+    user_input = gets.strip.titleize.downcase
+    binding.pry
     if user_input == "exit"
       exit_program
     else
       drink_recipe(user_input)
     end
 end
+
+#mojito and cuba libre are breaking while running drink_recipe (ingredients portion)
+#calling B 53 and orange push up cannot be found
 
 def drink_recipe(user_input)
     if Drink.drink_exist(user_input) != nil
@@ -116,19 +120,8 @@ def re_run
   user_input = gets.strip.downcase
   if user_input == "yes" || user_input == "y"
     command_prompt
-<<<<<<< HEAD
-  elsif user_input == "no" || user_input == "n"
-    puts ""
-    puts "------------------------------------------------------------------------------------------"
-    puts "Thanks for using the cocktail database! Come back when you want to learn more about booze."
-    puts "------------------------------------------------------------------------------------------"
-    puts banner1
-    puts "------------------------------------------------------------------------------------------"
-    puts "------------------------------------------------------------------------------------------"
-=======
   elsif user_input == "no" || user_input == "n" || user_input == "exit"
     exit_program
->>>>>>> 505f6effe20d0cf213fdfe955fca50dc63b98dcd
   else
     puts "can you read? type YES or NO."
     re_run
@@ -184,7 +177,7 @@ def lookup_drink_list_intro
   else
     puts ""
     puts "Sorry, that ingredient does not yet exist in our database."
-    lookup_drink_list
+    lookup_drink_list(drinks_array)
   end
 end
 
@@ -197,8 +190,8 @@ def lookup_drink_list(drinks_array)
   else
     puts ""
     puts "Somebody didn't learn to count to #{drinks_array.length}"
-    puts "Please enter a number between 1 and #{drinks_arrary.length}"
-    surprise_drink(random_drinks)
+    puts "Please enter a number between 1 and #{drinks_array.length}"
+    lookup_drink_list(drinks_array)
   end
 end
 
@@ -209,6 +202,7 @@ def describe_ingredient
   user_input = gets.strip.downcase
   if user_input == "exit"
     exit_program
+  end
   if Ingredient.ingredient_exist(user_input) != nil
     ingredient = Ingredient.find_by(name: user_input)
     puts ""

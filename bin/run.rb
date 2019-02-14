@@ -1,10 +1,11 @@
 require_relative '../config/environment'
 require 'pry'
 require 'pp'
-require_relative "../app/models/drink.rb"
+#require_relative "../app/models/drink.rb"
 
-welcome
+#welcome
 
+remove_dash_drink_names
 
 
 

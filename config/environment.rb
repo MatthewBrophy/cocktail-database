@@ -9,6 +9,7 @@ require_relative '../app/models/ingredient_card'
 require_relative '../app/models/ingredient'
 require_relative "../lib/api_communicator.rb"
 require_relative "../lib/command_line_interface.rb"
+require_relative "../db/update_db.rb"
 Bundler.require
 
 ActiveRecord::Base.establish_connection(
