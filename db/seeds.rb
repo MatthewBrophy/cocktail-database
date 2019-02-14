@@ -1,7 +1,7 @@
 
 
 def add_drink(drink_hash)
-  drink = Drink.create(name: drink_hash["strDrink"].strip.downcase, instructions: drink_hash["strInstructions"],
+  drink = Drink.create(name: drink_hash["strDrink"].strip.titleize.downcase, instructions: drink_hash["strInstructions"],
   vessel: drink_hash["strGlass"].strip.downcase, category: drink_hash["strCategory"].strip.downcase)
   drink_hash["strAlcoholic"] == "Alcoholic" ? drink.alcoholic = 1 : drink.alcoholic = 0
   drink.save
