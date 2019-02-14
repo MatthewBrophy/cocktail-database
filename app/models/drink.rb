@@ -2,8 +2,6 @@ class Drink < ActiveRecord::Base
   has_many :ingredient_cards
   has_many :ingredients, through: :ingredient_cards
 
-<<<<<<< HEAD
-=======
   def self.recipe(drink_name)
     drink = Drink.find_by(name: drink_name)
     puts ""
@@ -24,7 +22,6 @@ class Drink < ActiveRecord::Base
     puts ""
   end
 
->>>>>>> 5ce41de1ec7c60cf461c3a065f88ff0c089414b2
   def self.ten_random_drinks
     drink_array = []
     10.times do
