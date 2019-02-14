@@ -27,4 +27,11 @@ class Drink < ActiveRecord::Base
       drink_array << drink.name
     end
   end
+
+  def self.drink_exist(drink_name)
+    if Drink.find_by(name: drink_name)
+      "exists"
+    else
+      nil
+  end
 end
