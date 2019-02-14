@@ -22,6 +22,7 @@ def welcome
   puts " "
   puts " "
   puts " "
+  command_prompt
 end
 
 def command_prompt
@@ -33,6 +34,7 @@ def command_prompt
   puts "3. Find an ingredient's description"
   puts "4. Suprise me!"
   puts "---------------------------------------------------------------------------------"
+  get_user_menu_input
 end
 
 def get_user_menu_input
@@ -44,7 +46,7 @@ def get_user_menu_input
   elsif user_input == "3"
     puts "testy testy 3"
   elsif user_input == "4"
-    puts "testy testy 4"
+    surprise_drink
   else
     puts "You may already be too drunk to use this application.  Please make a valid selection"
     get_user_menu_input
@@ -54,6 +56,10 @@ end
 def learn_a_cocktail
     puts "Please enter the name of the cocktail you would like to learn to make:"
     user_input = gets.strip.downcase
+    drink_recipe(user_input)
+end
+
+def drink_recipe(user_input)
     if Drink.drink_exist(user_input) != nil
       Drink.recipe(user_input)
       run_again?
@@ -84,4 +90,17 @@ def re_run
     puts "can you read? type YES or NO."
     re_run
   end
+end
+
+def surprise_drink
+  puts ""
+  puts "Enter the number of your desired drink."
+  random_drinks = Drink.ten_random_drinks
+  random_drinks.each_with_index do |drink, i|
+    #binding.pry
+    puts "#{i + 1}. #{drink}"
+  end
+  puts ""
+  user_input = gets.strip.downcase.to_i
+  drink_recipe(random_drinks[(user_input + 1)])
 end
