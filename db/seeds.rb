@@ -1,8 +1,8 @@
 
 
 def add_drink(drink_hash)
-  drink = Drink.create(name: drink_hash["strDrink"].strip, instructions: drink_hash["strInstructions"],
-  vessel: drink_hash["strGlass"], category: drink_hash["strCategory"])
+  drink = Drink.create(name: drink_hash["strDrink"].strip.downcase, instructions: drink_hash["strInstructions"],
+  vessel: drink_hash["strGlass"].strip.downcase, category: drink_hash["strCategory"].strip.downcase)
   drink_hash["strAlcoholic"] == "Alcoholic" ? drink.alcoholic = 1 : drink.alcoholic = 0
   drink.save
   create_ingredient_arrays(drink, drink_hash)
@@ -10,9 +10,9 @@ end
 
 def create_ingredient_arrays(drink, drink_hash)
   ingredients = drink_hash.map {|k, v| v if k.start_with?("strIngredient") && v != ""}.compact
-  ingredients = ingredients.map { |element| element.strip }
+  ingredients = ingredients.map { |element| element.strip.downcase }
   quantities = drink_hash.map {|k, v| v if k.start_with?("strMeasure") && v != ""}.compact
-  quantities = quantities.map { |element| element.strip }
+  quantities = quantities.map { |element| element.strip.downcase }
   add_ingredients_and_quantities(drink, drink_hash, ingredients, quantities)
 end
 

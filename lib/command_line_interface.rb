@@ -32,6 +32,7 @@ def welcome
   puts "---------------------------------------------------------------------------------"
 end
 
+<<<<<<< HEAD
 def get_user_menu_input
   user_input = gets.strip
   if user_input == "1"
@@ -52,4 +53,8 @@ def learn_a_cocktail
     puts "Great choice! Please enter the name of the cocktail you would like to learn to make:"
     user_input = gets.strip.downcase
     Drink.recipe(user_input)
+=======
+def test_cli
+  Drink.recipe("zombie")
+>>>>>>> 3ab96c99c6eb3299d27dbddf63ba685d8040e603
 end

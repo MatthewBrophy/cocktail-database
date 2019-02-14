@@ -16,4 +16,6 @@ ActiveRecord::Base.establish_connection(
   database: "db/cocktails.db"
 )
 
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+#ActiveRecord::Base.logger = Logger.new(STDOUT)
+ActiveRecord::Base.logger = nil
