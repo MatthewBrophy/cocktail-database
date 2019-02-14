@@ -11,7 +11,7 @@ class Drink < ActiveRecord::Base
     puts ""
     drink.ingredients.map do |ingredient|
       ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
-      puts "• "ingredient_card.measurement + " - " +ingredient_card.ingredient.name 
+      puts " • "ingredient_card.measurement + " - " +ingredient_card.ingredient.name 
     end
     puts ""
     puts "Instructions:"
