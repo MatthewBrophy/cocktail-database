@@ -4,14 +4,14 @@ class Drink < ActiveRecord::Base
 
   def self.recipe(drink_name)
     drink = Drink.find_by(name: drink_name)
-    puts drink.name
+    puts drink.name.titleize
     puts ""
     puts "Ingredients:"
     puts "------------"
     puts ""
     drink.ingredients.map do |ingredient|
       ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
-      puts " • "ingredient_card.measurement + " - " +ingredient_card.ingredient.name 
+      puts " • " + ingredient_card.measurement + " - " +ingredient_card.ingredient.name
     end
     puts ""
     puts "Instructions:"
