@@ -9,8 +9,13 @@ require_relative '../app/models/drink'
 require_relative '../app/models/ingredient_card'
 require_relative '../app/models/ingredient'
 require_relative "../lib/api_communicator.rb"
-require_relative "../lib/command_line_interface.rb"
 require_relative "../db/update_db.rb"
+require_relative "../lib/banner.rb"
+require_relative "../lib/by_ingredient.rb"
+require_relative "../lib/cocktail.rb"
+require_relative "../lib/info.rb"
+require_relative "../lib/use.rb"
+require_relative "../lib/variety.rb"
 Bundler.require
 
 ActiveRecord::Base.establish_connection(

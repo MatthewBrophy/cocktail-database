@@ -1,4 +1,5 @@
 require_relative '../config/environment'
 
-welcome
-
+Banner.banner2
+Banner.welcome
+Use.command_prompt
