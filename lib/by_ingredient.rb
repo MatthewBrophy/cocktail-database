@@ -4,7 +4,6 @@ def lookup_drink_list_intro
   puts "---------------------------------------------------------------------------------"
   puts "Please enter the name of an Ingredient:"
   puts "---------------------------------------------------------------------------------"
-  puts ""
   lookup_drink_list_input
 end
 
@@ -25,8 +24,10 @@ def lookup_drink_list_input
     lookup_drink_list(drinks_array)
   else
     puts ""
+    puts "----------------------------------------------------------"
     puts "Sorry, that ingredient does not yet exist in our database."
     puts "Please enter another ingredient"
+    puts "----------------------------------------------------------"
     lookup_drink_list_input
   end
 end
@@ -43,8 +44,10 @@ def lookup_drink_list(drinks_array)
       Use.run_again?
     else
       puts ""
+      puts "-------------------------------------"
       puts "Somebody didn't learn to count to #{drinks_array.length}"
       puts "Please enter a number between 1 and #{drinks_array.length}"
+      puts "-------------------------------------"
       lookup_drink_list(drinks_array)
     end
   end

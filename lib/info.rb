@@ -1,5 +1,6 @@
 
 def describe_ingredient_intro
+  puts ""
   puts "---------------------------------"
   puts "Enter the name of your ingredient"
   puts "---------------------------------"
@@ -15,15 +16,17 @@ def describe_ingredient
     if Ingredient.ingredient_exist(user_input) != nil
       ingredient = Ingredient.find_by(name: user_input)
       puts ""
-      puts ingredient.name.titleize
-      puts "-----"
+      puts ingredient.name.upcase
+      puts "--"
       puts ""
       puts ingredient.description
-      puts ""
       Use.run_again?
     else
       puts ""
+      puts "----------------------------------------------------------"
       puts "Sorry, that ingredient does not yet exist in our database."
+      puts "Enter the name of your ingredient"
+      puts "----------------------------------------------------------"
       describe_ingredient
     end
   end

@@ -1,6 +1,7 @@
 class Banner
 
   def self.banner1
+  puts ""
   puts " _____"
   puts "/.---.\\"
   puts "|`````|"
@@ -12,6 +13,7 @@ class Banner
   end
 
   def self.banner2
+  puts ""
   puts " ()   ()      ()    /"
   puts "   ()      ()  ()  /"
   puts "    ______________/___"

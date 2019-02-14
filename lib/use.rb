@@ -19,7 +19,7 @@ class Use
     user_input = gets.strip
     if user_input == "1"
       puts ""
-      learn_a_cocktail
+      learn_a_cocktail_intro
     elsif user_input == "2"
       lookup_drink_list_intro
     elsif user_input == "3"
@@ -30,18 +30,22 @@ class Use
       Use.exit_program
     else
       puts ""
+      puts "------------------------------------------------------------------------------------"
       puts "You may already be too drunk to use this application.  Please make a valid selection"
+      puts "------------------------------------------------------------------------------------"
       Use.get_user_menu_input
     end
   end
 
   def self.exit_program
+    puts ""
     puts "--------------------------------------------------------"
     puts "Thank you for using The Cocktail Database! See you soon!"
     puts "--------------------------------------------------------"
     Banner.banner1
     puts "--------------------------------------------------------"
-    puts "-----------------ß---------------------------------------"
+    puts "--------------------------------------------------------"
+    puts ""
     exit
   end
 
