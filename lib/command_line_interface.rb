@@ -39,10 +39,7 @@ def welcome
   puts "-------------------------------------------------------"
   puts "Welcome to the cocktail database.  Let's get you drunk!"
   puts "-------------------------------------------------------"
-  puts " "
   banner2
-  puts " "
-  puts " "
   command_prompt
 end
 
@@ -80,7 +77,7 @@ end
 def learn_a_cocktail
     puts "Please enter the name of the cocktail you would like to learn to make:"
     user_input = gets.strip.downcase
-    if user_input == "exit" || user_input == "5"
+    if user_input == "exit"
       exit
     else
       drink_recipe(user_input)
