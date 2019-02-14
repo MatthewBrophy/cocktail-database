@@ -3,9 +3,9 @@ require 'pry'
 require 'pp'
 #require_relative "../app/models/drink.rb"
 
-#welcome
+welcome
 
-remove_dash_drink_names
+#remove_dash_drink_names
 
 
 
