@@ -19,6 +19,7 @@ class Drink < ActiveRecord::Base
     puts ""
     puts "Instructions"
     puts "--"
+    puts ""
     puts drink.instructions
   end
 
