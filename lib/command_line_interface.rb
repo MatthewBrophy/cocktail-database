@@ -64,6 +64,7 @@ def drink_recipe(user_input)
       Drink.recipe(user_input)
       run_again?
     else
+      puts ""
       puts "Sorry, that drink does not yet exist in our database."
       learn_a_cocktail
     end
@@ -94,16 +95,19 @@ end
 
 def surprise_drink
   puts ""
+  puts "---------------------------------------"
   puts "Enter the number of your desired drink."
+  puts "---------------------------------------"
   random_drinks = Drink.ten_random_drinks
   random_drinks.each_with_index do |drink, i|
-    #binding.pry
     puts "#{i + 1}. #{drink}"
   end
   puts ""
   user_input = gets.strip.downcase.to_i
-  drink_recipe(random_drinks[(user_input + 1)])
+    drink_recipe(random_drinks[(user_input - 1)].downcase)
 end
+
+def
 
 def lookup_drink_list
   puts "Please enter the name of an ingredient."
