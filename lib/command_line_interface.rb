@@ -82,16 +82,12 @@ def learn_a_cocktail
     puts "Please enter the name of the cocktail you would like to learn to make:"
     puts ""
     user_input = gets.strip.titleize.downcase
-    binding.pry
     if user_input == "exit"
       exit_program
     else
       drink_recipe(user_input)
     end
 end
-
-#mojito and cuba libre are breaking while running drink_recipe (ingredients portion)
-#calling B 53 and orange push up cannot be found
 
 def drink_recipe(user_input)
     if Drink.drink_exist(user_input) != nil
