@@ -42,7 +42,7 @@ def get_user_menu_input
   if user_input == "1"
     learn_a_cocktail
   elsif user_input == "2"
-    puts "testy testy 2"
+    lookup_drink_list
   elsif user_input == "3"
     puts "testy testy 3"
   elsif user_input == "4"
@@ -54,6 +54,17 @@ def get_user_menu_input
 end
 
 def learn_a_cocktail
+<<<<<<< HEAD
+  puts "Please enter the name of the cocktail you would like to learn to make:"
+  user_input = gets.strip.downcase
+  if Drink.drink_exist(user_input) != nil
+    Drink.recipe(user_input)
+    run_again?
+  else
+    puts "Sorry, that drink does not yet exist in our database."
+    learn_a_cocktail
+  end
+=======
     puts "Please enter the name of the cocktail you would like to learn to make:"
     user_input = gets.strip.downcase
     drink_recipe(user_input)
@@ -68,6 +79,7 @@ def drink_recipe(user_input)
       puts "Sorry, that drink does not yet exist in our database."
       learn_a_cocktail
     end
+>>>>>>> 6c23937500675343646484806683f54c696a0a81
 end
 
 def run_again?
@@ -112,4 +124,18 @@ def
 def lookup_drink_list
   puts "Please enter the name of an ingredient."
   user_input = gets.strip.downcase
+<<<<<<< HEAD
+  if Ingredient.ingredient_exist(user_input) != nil
+    drinks_array = Ingredient.drink_list(user_input)
+    drinks_array.each_with_index do |drink, index|
+      puts "#{index + 1}. #{drink}"
+    end
+    run_again?
+  else
+    puts "Sorry, that ingredient does not yet exist in our database."
+    lookup_drink_list
+  end
 end
+=======
+end
+>>>>>>> 6c23937500675343646484806683f54c696a0a81
