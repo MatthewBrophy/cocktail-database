@@ -33,7 +33,6 @@ end
 def print_cocktail(user_input)
   drink = Drink.find_by(name: user_input)
   puts ""
-  puts ""
   puts drink.name.upcase
   puts "--"
   puts ""

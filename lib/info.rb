@@ -19,7 +19,11 @@ def describe_ingredient
       puts ingredient.name.upcase
       puts "--"
       puts ""
-      puts ingredient.description
+      if ingredient.description.blank?
+        puts "Sorry, a description has not yet been writted for this ingredient"
+      else
+        puts ingredient.description
+      end
       Use.run_again?
     else
       puts ""
