@@ -2,6 +2,29 @@ class Drink < ActiveRecord::Base
   has_many :ingredient_cards
   has_many :ingredients, through: :ingredient_cards
 
+<<<<<<< HEAD
+=======
+  def self.recipe(drink_name)
+    drink = Drink.find_by(name: drink_name)
+    puts ""
+    puts ""
+    puts drink.name.titleize
+    puts ""
+    puts "Ingredients"
+    puts "-----------"
+    drink.ingredients.map do |ingredient|
+      ingredient_card = IngredientCard.find_by(drink_id: drink.id, ingredient_id: ingredient.id)
+      fixed_measure = ingredient_card.measurement && !ingredient_card.measurement.blank? ? ingredient_card.measurement + " - " : ""
+      puts " • " + fixed_measure + ingredient_card.ingredient.name
+    end
+    puts ""
+    puts "Instructions"
+    puts "------------"
+    puts drink.instructions
+    puts ""
+  end
+
+>>>>>>> 5ce41de1ec7c60cf461c3a065f88ff0c089414b2
   def self.ten_random_drinks
     drink_array = []
     10.times do
