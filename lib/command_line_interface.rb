@@ -63,11 +63,11 @@ def get_user_menu_input
   elsif user_input == "2"
     lookup_drink_list
   elsif user_input == "3"
-    puts "testy testy 3"
+    describe_ingredient
   elsif user_input == "4"
     surprise_drink_intro_and_randoms
   elsif user_input == "5" || user_input == "exit"
-    exit
+    exit_program
   else
     puts "You may already be too drunk to use this application.  Please make a valid selection"
     get_user_menu_input
@@ -78,7 +78,7 @@ def learn_a_cocktail
     puts "Please enter the name of the cocktail you would like to learn to make:"
     user_input = gets.strip.downcase
     if user_input == "exit"
-      exit
+      exit_program
     else
       drink_recipe(user_input)
     end
@@ -109,13 +109,8 @@ def re_run
   user_input = gets.strip.downcase
   if user_input == "yes" || user_input == "y"
     command_prompt
-  elsif user_input == "no" || user_input == "n"
-    puts "------------------------------------------------------------------------------------------"
-    puts "Thanks for using the cocktail database! Come back when you want to learn more about booze."
-    puts "------------------------------------------------------------------------------------------"
-    puts banner1
-    puts "------------------------------------------------------------------------------------------"
-    puts "------------------------------------------------------------------------------------------"
+  elsif user_input == "no" || user_input == "n" || user_input == "exit"
+    exit_program
   else
     puts "can you read? type YES or NO."
     re_run
@@ -136,13 +131,18 @@ def surprise_drink_intro_and_randoms
 end
 
 def surprise_drink(random_drinks)
-  user_input = gets.strip.downcase.to_i
-  if user_input.between?(1, 10)
-    drink_recipe(random_drinks[(user_input - 1)].downcase)
+  user_input = gets.strip.downcase
+  if user_input == "exit"
+    exit_program
   else
-    puts "Somebody didn't learn to count to 10"
-    puts "Please enter a number between 1 and 10"
-    surprise_drink(random_drinks)
+    user_input = user_input.downcase.to_i
+      if user_input.between?(1, 10)
+        drink_recipe(random_drinks[(user_input - 1)].downcase)
+      else
+        puts "Somebody didn't learn to count to 10"
+        puts "Please enter a number between 1 and 10"
+        surprise_drink(random_drinks)
+      end
   end
 end
 
@@ -177,4 +177,14 @@ def describe_ingredient
     puts "Sorry, that ingredient does not yet exist in our database."
     describe_ingredient
   end
+end
+
+def exit_program
+  puts "--------------------------------------------------------"
+  puts "Thank you for using The Cocktail Database! See you soon!"
+  puts "--------------------------------------------------------"
+  banner1
+  puts "--------------------------------------------------------"
+  puts "--------------------------------------------------------"
+  exit
 end
