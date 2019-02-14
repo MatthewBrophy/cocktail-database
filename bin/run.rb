@@ -3,9 +3,8 @@ require 'pry'
 require 'pp'
 require_relative "../app/models/drink.rb"
 
-test_cli
-
 welcome
+command_prompt
 get_user_menu_input
 
 
