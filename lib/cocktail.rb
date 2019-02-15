@@ -2,9 +2,9 @@ class Cocktail
 
 #prints the intro to the cocktail path
   def self.learn_a_cocktail_intro
-    puts "----------------------------------------------------------------"
-    puts "Please the name of the cocktail you would like to learn to make:"
-    puts "----------------------------------------------------------------"
+    puts "----------------------------------------------------------------------"
+    puts "Please enter the name of the cocktail you would like to learn to make:"
+    puts "----------------------------------------------------------------------"
   end
 
 #gets the user input to make a cocktail
