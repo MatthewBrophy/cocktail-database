@@ -26,3 +26,4 @@ ActiveRecord::Base.establish_connection(
 
 #ActiveRecord::Base.logger = Logger.new(STDOUT)
 ActiveRecord::Base.logger = nil
+SINATRA_ACTIVESUPPORT_WARNING=false
