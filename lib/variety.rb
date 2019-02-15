@@ -3,12 +3,13 @@ class Variety
   def self.surprise_drink_intro
     puts ""
     puts "---------------------------------------------------------------------------------"
-    puts "Choose yo drank:                                (Enter a number between 1 and 10)"
+    puts "Choose yo random drank:                         (Enter a number between 1 and 10)"
     puts "---------------------------------------------------------------------------------"
     random_drinks = Drink.ten_random_drinks
     random_drinks.each_with_index do |drink, i|
-      puts "#{i + 1}. #{drink}"
+      puts "#{i + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
     end
+    puts "---------------------------------------------------------------------------------"
     Variety.surprise_drink(random_drinks)
   end
 
@@ -20,7 +21,7 @@ class Variety
     else
       user_input = user_input.downcase.to_i
       if user_input.between?(1, 10)
-        Cocktail.print_cocktail(random_drinks[(user_input - 1)].downcase)
+        Cocktail.print_cocktail(random_drinks[(user_input - 1)].name.downcase)
       else
         puts ""
         puts "Somebody didn't learn to count to 10"

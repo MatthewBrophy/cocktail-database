@@ -7,7 +7,7 @@ class Drink < ActiveRecord::Base
     10.times do
       rando_id = rand(1..Drink.count)
       drink = Drink.find_by(id: rando_id)
-      drink_array << drink.name.titleize
+      drink_array << drink
     end
     drink_array
   end

@@ -21,12 +21,19 @@ class Cocktail
     if Drink.drink_exist(user_input) != nil
       Cocktail.print_cocktail(user_input)
       Use.run_again?
-    else
+    elsif user_input == "rum and coke"
       puts ""
       puts "----------------------------------------------------------------"
-      puts "Sorry, that drink does not yet exist in our database."
-      puts "Please the name of the cocktail you would like to learn to make:"
+      puts "Go back to college."
+      puts "Please type the name of an ACTUAL cocktail:"
       puts "----------------------------------------------------------------"
+      Cocktail.learn_a_cocktail
+    else
+      puts ""
+      puts "---------------------------------------------------------------------"
+      puts "Sorry, that drink does not yet exist in our database."
+      puts "Please type the name of the cocktail you would like to learn to make:"
+      puts "---------------------------------------------------------------------"
       Cocktail.learn_a_cocktail
     end
   end
@@ -44,8 +51,10 @@ class Cocktail
       Banner.coffee_mug
     elsif drink.vessel == "white wine glass" || drink.vessel == "wine glass" || drink.vessel == "martini glass" || drink.vessel == "champagne flute"
       Banner.wine_glass
-    elsif drink.vessel == "highball glass" || drink.category == "milk / float / shake"
-      Banner.highball_glass
+    elsif drink.category == "milk / float / shake" || drink.category == "soft drink / soda" || drink.category == "fun drink"
+      Banner.fruity_glass
+    elsif drink.vessel == "highball glass"
+      Banner.glass
     else
       Banner.glass
     end
