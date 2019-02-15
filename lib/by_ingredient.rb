@@ -10,9 +10,11 @@ class ByIngredient
   def self.lookup_drink_list
     drinks_array = ByIngredient.find_drink_list
     puts ""
+    puts "---------------------------------------------"
     drinks_array.each_with_index do |drink, index|
-      puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
+    puts "#{drink.name.titleize}  (#{drink.difficulty.titleize})"
     end
+    puts "---------------------------------------------"
     ByIngredient.another_ingredient_check_intro
     drink_more = ByIngredient.another_ingredient_check
     #binding.pry
@@ -22,9 +24,11 @@ class ByIngredient
       drinks_array = drinks_array & another_drink_array
       if drinks_array.length > 1
         puts ""
+        puts "---------------------------------------------"
         drinks_array.each_with_index do |drink, index|
-        puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
+        puts "#{drink.name.titleize}  (#{drink.difficulty.titleize})"
         end
+        puts "---------------------------------------------"
         ByIngredient.another_ingredient_check_intro
         drink_more = ByIngredient.another_ingredient_check
       elsif drinks_array.length == 1
@@ -99,8 +103,6 @@ class ByIngredient
   end
 
   def self.another_ingredient_check_intro
-    puts ""
-    puts "---------------------------------------------"
     puts "Would you like to include another ingredient?"
   end
 
