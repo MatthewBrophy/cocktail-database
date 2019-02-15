@@ -11,9 +11,7 @@ class ByIngredient
     drinks_array = ByIngredient.find_drink_list
     puts ""
     puts "---------------------------------------------"
-    drinks_array.each_with_index do |drink, index|
-    puts "#{drink.name.titleize}  (#{drink.difficulty.titleize})"
-    end
+    ByIngredient.display_array(drinks_array)
     puts "---------------------------------------------"
     ByIngredient.another_ingredient_check_intro
     drink_more = ByIngredient.another_ingredient_check
@@ -25,9 +23,7 @@ class ByIngredient
       if drinks_array.length > 1
         puts ""
         puts "---------------------------------------------"
-        drinks_array.each_with_index do |drink, index|
-        puts "#{drink.name.titleize}  (#{drink.difficulty.titleize})"
-        end
+        ByIngredient.display_array(drinks_array)
         puts "---------------------------------------------"
         ByIngredient.another_ingredient_check_intro
         drink_more = ByIngredient.another_ingredient_check
@@ -63,25 +59,35 @@ class ByIngredient
     end
   end
 
+  def self.make_a_choice(drinks_array)
+    puts "---------------------------------------------------------------------------------"
+    puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
+    puts "---------------------------------------------------------------------------------"
+  end
+
+  def self.display_array_with_number(drinks_array)
+    drinks_array.each_with_index do |drink, index|
+      puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
+    end
+  end
+
+  def self.display_array(drinks_array)
+    drinks_array.each_with_index do |drink, index|
+    puts "#{drink.name.titleize}  (#{drink.difficulty.titleize})"
+    end
+  end
+
   def self.choose_drink(drinks_array)
     if drinks_array.length < 40
       puts ""
-      puts "---------------------------------------------------------------------------------"
-      puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
-      puts "---------------------------------------------------------------------------------"
-      drinks_array.each_with_index do |drink, index|
-        puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
-      end
+      ByIngredient.make_a_choice(drinks_array)
+      ByIngredient.display_array_with_number(drinks_array)
       puts "---------------------------------------------------------------------------------"
     else
       puts ""
       puts "---------------------------------------------------------------------------------"
-      drinks_array.each_with_index do |drink, index|
-        puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
-      end
-      puts "---------------------------------------------------------------------------------"
-      puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
-      puts "---------------------------------------------------------------------------------"
+      ByIngredient.display_array_with_number(drinks_array)
+      ByIngredient.make_a_choice(drinks_array)
     end
     puts ""
     user_input = gets.strip.downcase.titleize.downcase
