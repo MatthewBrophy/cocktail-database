@@ -60,10 +60,10 @@ class Cocktail
     end
     puts ""
     puts drink.name.upcase
-    puts "--"
+    puts "-----------"
     puts ""
     puts drink.category.capitalize + " served in a " + drink.vessel
-    puts "--"
+    puts "-----------"
     puts ""
     puts "Ingredients"
     puts "-----------"
