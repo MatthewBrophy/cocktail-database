@@ -126,39 +126,3 @@ class ByIngredient
     end
   end
 end
-
-  # def self.lookup_drink_list_input
-  #   puts ""
-  #   user_input = gets.strip.downcase.titleize.downcase
-  #   if user_input == "exit"
-  #     Use.exit_program
-  #   elsif Ingredient.ingredient_exist(user_input) != nil
-  #     drinks_array = Ingredient.drink_list(user_input)
-  #     ByIngredient.lookup_drink_list(drinks_array)
-  #   else
-  #     puts ""
-  #     puts "----------------------------------------------------------"
-  #     puts "Sorry, that ingredient does not yet exist in our database."
-  #     puts "Please enter another ingredient"
-  #     puts "----------------------------------------------------------"
-  #     ByIngredient.lookup_drink_list_input
-  #   end
-  # end
-
-  #
-  #
-  # def self.lookup_drink_list_input
-  #   puts ""
-  #   user_input = gets.strip.downcase.titleize.downcase
-  #   if user_input == "exit"
-  #     Use.exit_program
-  #   # elsif Ingredient.ingredient_exist(user_input) != nil
-  #   #   og_drinks_array = Ingredient.drink_list(user_input)
-  #   #   drinks_array = og_drinks_array
-  #   #   check =
-  #   #   i = 0
-  #   #   while check == true
-  #   #     another_drink_array = ByIngredient.more_drink
-  #     ByIngredient.lookup_drink_list(drinks_array)
-  #
-  # end
