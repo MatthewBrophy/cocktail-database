@@ -15,14 +15,25 @@ class ByIngredient
       Use.exit_program
     elsif Ingredient.ingredient_exist(user_input) != nil
       drinks_array = Ingredient.drink_list(user_input)
-      puts ""
-      puts "---------------------------------------------------------------------------------"
-      puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
-      puts "---------------------------------------------------------------------------------"
-      drinks_array.each_with_index do |drink, index|
-        puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
+      if drinks_array.length < 40
+        puts ""
+        puts "---------------------------------------------------------------------------------"
+        puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
+        puts "---------------------------------------------------------------------------------"
+        drinks_array.each_with_index do |drink, index|
+          puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
+        end
+        puts "---------------------------------------------------------------------------------"
+      else
+        puts ""
+        puts "---------------------------------------------------------------------------------"
+        drinks_array.each_with_index do |drink, index|
+          puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
+        end
+        puts "---------------------------------------------------------------------------------"
+        puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
+        puts "---------------------------------------------------------------------------------"
       end
-      puts "---------------------------------------------------------------------------------"
       ByIngredient.lookup_drink_list(drinks_array)
     else
       puts ""
