@@ -20,8 +20,9 @@ class ByIngredient
       puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
       puts "---------------------------------------------------------------------------------"
       drinks_array.each_with_index do |drink, index|
-        puts "#{index + 1}. #{drink}"
+        puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
       end
+      puts "---------------------------------------------------------------------------------"
       ByIngredient.lookup_drink_list(drinks_array)
     else
       puts ""
@@ -41,7 +42,7 @@ class ByIngredient
     else
       user_input = user_input.downcase.to_i
       if user_input.between?(1, (drinks_array.length))
-        Cocktail.print_cocktail(drinks_array[(user_input - 1)].downcase)
+        Cocktail.print_cocktail(drinks_array[(user_input - 1)].name.downcase)
         Use.run_again?
       else
         puts ""

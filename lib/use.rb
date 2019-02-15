@@ -3,7 +3,7 @@ class Use
   def self.command_prompt
     puts ""
     puts "---------------------------------------------------------------------------------"
-    puts "Please select from the following options:       (Enter a number between 1 and 4)"
+    puts "Please select from the following options:       (Enter a number between 1 and 5)"
     puts "---------------------------------------------------------------------------------"
     puts "1. Learn how to make a cocktail by name"
     puts "2. Look up a drink list by ingredient"
@@ -41,6 +41,7 @@ class Use
     puts ""
     puts "--------------------------------------------------------"
     puts "Thank you for using The Cocktail Database! See you soon!"
+    puts "Pleaase drnk respoonsibbnily"
     puts "--------------------------------------------------------"
     Banner.banner1
     puts "--------------------------------------------------------"
@@ -58,9 +59,9 @@ class Use
   end
 
   def self.re_run
-    puts ""
-    puts ' • Yes  (return to the main menu)'
-    puts ' • No   (exit the program)'
+    puts " • Yes  (return to the main menu)"
+    puts " • No   (exit the program)"
+    puts "-------------------------------------------------------"
     puts ""
     user_input = gets.strip.downcase.titleize.downcase
     if user_input == "yes" || user_input == "y"
@@ -69,9 +70,9 @@ class Use
       Use.exit_program
     else
       puts ""
-      puts "-----------------------------"
+      puts "-------------------------------------------------------"
       puts "Can you read? type YES or NO."
-      puts "-----------------------------"
+      puts "-------------------------------------------------------"
       Use.re_run
     end
   end

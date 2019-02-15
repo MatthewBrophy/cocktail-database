@@ -120,7 +120,7 @@ class Banner
     puts "               _|_"
   end
 
-  def self.highball_glass
+  def self.fruity_glass
     puts "          _*"
     puts "     .---/ `\\"
     puts "     |~~~~|`'"
