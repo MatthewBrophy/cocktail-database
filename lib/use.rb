@@ -22,6 +22,7 @@ class Use
       Cocktail.learn_a_cocktail_intro
     elsif user_input == "2"
       ByIngredient.lookup_drink_list_intro
+      ByIngredient.lookup_drink_list
     elsif user_input == "3"
       Info.describe_ingredient_intro
     elsif user_input == "4"
