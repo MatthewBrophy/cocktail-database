@@ -1,5 +1,6 @@
 class Variety
 
+#provides intro to random drink path
   def self.surprise_drink_intro
     puts ""
     puts "---------------------------------------------------------------------------------"
@@ -13,6 +14,7 @@ class Variety
     Variety.surprise_drink(random_drinks)
   end
 
+#takes user input, provides surprise drink, calls on Drink method to print the users choice
   def self.surprise_drink(random_drinks)
     puts ""
     user_input = gets.strip.downcase.titleize.downcase

@@ -1,13 +1,14 @@
 class Info
 
+#gives intro to ingrediento info path
   def self.describe_ingredient_intro
     puts ""
     puts "----------------------------------"
     puts "Enter the name of your ingredient:"
     puts "----------------------------------"
-    Info.describe_ingredient
   end
 
+#takes in user input and either outputs the description or asks for a new input
   def self.describe_ingredient
     puts ""
     user_input = gets.strip.downcase.titleize.downcase

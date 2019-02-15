@@ -18,6 +18,7 @@ end
 #     drink.difficulty =
 # end
 
+#counted the difficulties to get an idea of how to separate difficulties
 def count_difficulties
   hash = {}
   i = 0
@@ -31,6 +32,7 @@ def count_difficulties
   puts hash
 end
 
+#assigned difficulties by number of ingredient cards (aka number of ingredients)
 def build_difficulties
   Drink.all.each do |drink|
     if drink.ingredient_cards.count < 3
@@ -46,6 +48,7 @@ def build_difficulties
   end
 end
 
+#clear colum of a table if necessary
 def clear_difficulties
   Drink.update_all("difficulty = NULL")
 end

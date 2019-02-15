@@ -2,6 +2,9 @@ class Drink < ActiveRecord::Base
   has_many :ingredient_cards
   has_many :ingredients, through: :ingredient_cards
 
+#drink contains the drinks and their attributes
+
+#provides the Variety class with an array of 10 random drinks
   def self.ten_random_drinks
     drink_array = []
     10.times do
@@ -12,6 +15,7 @@ class Drink < ActiveRecord::Base
     drink_array
   end
 
+#checks to see if a drink exists, used in several classes
   def self.drink_exist(drink_name)
     if Drink.find_by(name: drink_name)
       "exists"

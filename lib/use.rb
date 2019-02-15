@@ -1,5 +1,7 @@
 class Use
+#use is the master run file for this program
 
+#main menu prompt
   def self.command_prompt
     puts ""
     puts "---------------------------------------------------------------------------------"
@@ -14,17 +16,20 @@ class Use
     Use.get_user_menu_input
   end
 
+#takes user input off main menu and goes to appropriate class
   def self.get_user_menu_input
     puts ""
     user_input = gets.strip
     if user_input == "1"
       puts ""
       Cocktail.learn_a_cocktail_intro
+      Cocktail.learn_a_cocktail
     elsif user_input == "2"
       ByIngredient.lookup_drink_list_intro
       ByIngredient.lookup_drink_list
     elsif user_input == "3"
       Info.describe_ingredient_intro
+      Info.describe_ingredient
     elsif user_input == "4"
       Variety.surprise_drink_intro
     elsif user_input == "5" || user_input == "exit"
@@ -38,6 +43,7 @@ class Use
     end
   end
 
+#exits the program
   def self.exit_program
     puts ""
     puts "--------------------------------------------------------"
@@ -51,6 +57,7 @@ class Use
     exit
   end
 
+#asks if the user wants to go back to the main menu
   def self.run_again?
     puts ""
     puts "-------------------------------------------------------"
@@ -59,6 +66,7 @@ class Use
     Use.re_run
   end
 
+#takes user input to go to main menu, runs again if invalid entry
   def self.re_run
     puts " • Yes  (return to the main menu)"
     puts " • No   (exit the program)"

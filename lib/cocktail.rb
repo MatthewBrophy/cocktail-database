@@ -1,12 +1,13 @@
 class Cocktail
 
+#prints the intro to the cocktail path
   def self.learn_a_cocktail_intro
     puts "----------------------------------------------------------------"
     puts "Please the name of the cocktail you would like to learn to make:"
     puts "----------------------------------------------------------------"
-    Cocktail.learn_a_cocktail
   end
 
+#gets the user input to make a cocktail
   def self.learn_a_cocktail
     puts ""
     user_input = gets.strip.downcase.titleize.downcase
@@ -17,6 +18,7 @@ class Cocktail
     end
   end
 
+#uses Drink class to check if a cocktail exists and provides info back to user
   def self.check_cocktail(user_input)
     if Drink.drink_exist(user_input) != nil
       Cocktail.print_cocktail(user_input)
@@ -38,6 +40,7 @@ class Cocktail
     end
   end
 
+#final print method to display a cocktail and all its instructions
   def self.print_cocktail(user_input)
     drink = Drink.find_by(name: user_input)
     puts ""

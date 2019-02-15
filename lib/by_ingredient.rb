@@ -1,5 +1,6 @@
 class ByIngredient
 
+#prints intro to ingredient prompt
   def self.lookup_drink_list_intro
     puts ""
     puts "---------------------------------------------------------------------------------"
@@ -7,6 +8,7 @@ class ByIngredient
     puts "---------------------------------------------------------------------------------"
   end
 
+#master run file for this class
   def self.lookup_drink_list
     drinks_array = ByIngredient.find_drink_list
     if drinks_array.length == 1
@@ -43,7 +45,7 @@ class ByIngredient
     ByIngredient.choose_drink(drinks_array)
   end
 
-
+# Takes a user input and finds the drinks that are matched with that ingredient
   def self.find_drink_list
     puts ""
     user_input = gets.strip.downcase.titleize.downcase
@@ -61,24 +63,28 @@ class ByIngredient
     end
   end
 
+#prints the choose yo drank banner
   def self.make_a_choice(drinks_array)
     puts "---------------------------------------------------------------------------------"
     puts "Choose yo drank:            (Enter a number between 1 and #{drinks_array.length})"
     puts "---------------------------------------------------------------------------------"
   end
 
+#prints a numbered array of drinks
   def self.display_array_with_number(drinks_array)
     drinks_array.each_with_index do |drink, index|
       puts "#{index + 1}. #{drink.name.titleize}  (#{drink.difficulty.titleize})"
     end
   end
 
+#prints the array of drinks without numbers
   def self.display_array(drinks_array)
     drinks_array.each_with_index do |drink, index|
     puts "#{drink.name.titleize}  (#{drink.difficulty.titleize})"
     end
   end
 
+#chooses a drink and prints it via the Cocktail class
   def self.choose_drink(drinks_array)
     if drinks_array.length < 40
       puts ""
@@ -110,11 +116,12 @@ class ByIngredient
     end
   end
 
+#intro to checking for another ingredient
   def self.another_ingredient_check_intro
     puts "Would you like to include another ingredient?"
   end
 
-
+#checks if the user wants to add a new ingredient
   def self.another_ingredient_check
     puts "---------------------------------------------"
     puts " • Yes"
