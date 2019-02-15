@@ -19,13 +19,13 @@ class Use
     user_input = gets.strip
     if user_input == "1"
       puts ""
-      learn_a_cocktail_intro
+      Cocktail.learn_a_cocktail_intro
     elsif user_input == "2"
-      lookup_drink_list_intro
+      ByIngredient.lookup_drink_list_intro
     elsif user_input == "3"
-      describe_ingredient_intro
+      Info.describe_ingredient_intro
     elsif user_input == "4"
-      surprise_drink_intro
+      Variety.surprise_drink_intro
     elsif user_input == "5" || user_input == "exit"
       Use.exit_program
     else
@@ -75,5 +75,4 @@ class Use
       Use.re_run
     end
   end
-
 end
