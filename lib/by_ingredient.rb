@@ -9,13 +9,15 @@ class ByIngredient
 
   def self.lookup_drink_list
     drinks_array = ByIngredient.find_drink_list
+    if drinks_array.length == 1
+      return ByIngredient.choose_drink(drinks_array)
+    end
     puts ""
     puts "---------------------------------------------"
     ByIngredient.display_array(drinks_array)
     puts "---------------------------------------------"
     ByIngredient.another_ingredient_check_intro
     drink_more = ByIngredient.another_ingredient_check
-    #binding.pry
     while drink_more == true
       ByIngredient.lookup_drink_list_intro
       another_drink_array = ByIngredient.find_drink_list
