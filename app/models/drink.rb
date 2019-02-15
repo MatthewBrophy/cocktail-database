@@ -19,4 +19,10 @@ class Drink < ActiveRecord::Base
       nil
     end
   end
+
+  def self.call_it
+    Drink.all do |drink|
+      puts drink.name
+    end
+  end
 end

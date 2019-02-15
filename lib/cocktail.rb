@@ -33,6 +33,22 @@ end
 def print_cocktail(user_input)
   drink = Drink.find_by(name: user_input)
   puts ""
+  Banner.divider
+  puts ""
+  if drink.category == "punch / party drink"
+    Banner.party
+  elsif drink.vessel == "shot glass" || drink.category == "homemade liqueur"
+    Banner.shot_glass
+  elsif drink.category == "coffee / tea" || drink.vessel == "irish coffee cup" || drink.vessel == "coffee mug"
+    Banner.coffee_mug
+  elsif drink.vessel == "white wine glass" || drink.vessel == "wine glass" || drink.vessel == "martini glass" || drink.vessel == "champagne flute"
+    Banner.wine_glass
+  elsif drink.vessel == "highball glass" || drink.category == "milk / float / shake"
+    Banner.highball_glass
+  else
+    Banner.glass
+  end
+  puts ""
   puts drink.name.upcase
   puts "--"
   puts ""
@@ -52,5 +68,8 @@ def print_cocktail(user_input)
   puts "--"
   puts ""
   puts drink.instructions
+  puts ""
+  Banner.divider
+  puts ""
   Use.run_again?
 end

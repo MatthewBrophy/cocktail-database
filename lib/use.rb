@@ -69,7 +69,9 @@ class Use
       Use.exit_program
     else
       puts ""
-      puts "can you read? type YES or NO."
+      puts "-----------------------------"
+      puts "Can you read? type YES or NO."
+      puts "-----------------------------"
       Use.re_run
     end
   end

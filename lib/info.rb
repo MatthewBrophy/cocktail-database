@@ -16,6 +16,9 @@ def describe_ingredient
     if Ingredient.ingredient_exist(user_input) != nil
       ingredient = Ingredient.find_by(name: user_input)
       puts ""
+      Banner.divider
+      Banner.ingredient_banner
+      puts ""
       puts ingredient.name.upcase
       puts "--"
       puts ""
