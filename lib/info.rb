@@ -2,9 +2,9 @@ class Info
 
   def self.describe_ingredient_intro
     puts ""
-    puts "---------------------------------"
-    puts "Enter the name of your ingredient"
-    puts "---------------------------------"
+    puts "----------------------------------"
+    puts "Enter the name of your ingredient:"
+    puts "----------------------------------"
     Info.describe_ingredient
   end
 
@@ -21,10 +21,10 @@ class Info
         Banner.ingredient_banner
         puts ""
         puts ingredient.name.upcase
-        puts "--"
+        puts "------------"
         puts ""
         if ingredient.description.blank?
-          puts "Sorry, a description has not yet been writted for this ingredient"
+          puts "Sorry, a description has not yet been writted for this ingredient."
         else
           puts ingredient.description
         end
@@ -33,7 +33,7 @@ class Info
         puts ""
         puts "----------------------------------------------------------"
         puts "Sorry, that ingredient does not yet exist in our database."
-        puts "Enter the name of your ingredient"
+        puts "Enter the name of your ingredient:"
         puts "----------------------------------------------------------"
         Info.describe_ingredient
       end
