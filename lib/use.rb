@@ -8,7 +8,7 @@ class Use
     puts "Please select from the following options:       (Enter a number between 1 and 5)"
     puts "---------------------------------------------------------------------------------"
     puts "1. Learn how to make a cocktail by name"
-    puts "2. Look up a drink list by ingredient"
+    puts "2. Look up a drink list by ingredient(s)"
     puts "3. Find an ingredient's description"
     puts "4. Surprise me!"
     puts "5. Exit the program       (You may exit the program at any time by typing 'exit')"

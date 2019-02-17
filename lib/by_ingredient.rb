@@ -118,15 +118,15 @@ class ByIngredient
 
 #intro to checking for another ingredient
   def self.another_ingredient_check_intro
-    puts "Would you like to include another ingredient?"
+    puts "Would you like to refine by adding another ingredient?"
   end
 
 #checks if the user wants to add a new ingredient
   def self.another_ingredient_check
-    puts "---------------------------------------------"
+    puts "------------------------------------------------------"
     puts " • Yes"
     puts " • No"
-    puts "---------------------------------------------"
+    puts "------------------------------------------------------"
     puts ""
     user_input = gets.strip.downcase.titleize.downcase
     if user_input == "exit"
@@ -137,7 +137,7 @@ class ByIngredient
       return false
     else
       puts ""
-      puts "---------------------------------------------"
+      puts "----------------------------------------------------"
       puts "Can you read? type YES or NO."
       ByIngredient.another_ingredient_check
     end
