@@ -40,7 +40,7 @@ class Banner
     puts " "
     puts " "
     puts "-------------------------------------------------------"
-    puts "Welcome to the Thirsty.  Let's get you drunk!"
+    puts "Welcome to the Cocktail Database.  Let's get you drunk!"
     puts "-------------------------------------------------------"
   end
 
